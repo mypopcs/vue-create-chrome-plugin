@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Options</title>
+    <style>
+        /* 简单的样式，仅为实现功能 */
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 5px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>添加单词</h1>
+        <!-- 添加单词表单 -->
+        <form id="wordForm">
+            <input type="hidden" id="wordId">
+            <input type="text" id="english" placeholder="英语" required>
+            <input type="text" id="chinese" placeholder="中文" required>
+            <input type="text" id="phonetic" placeholder="音标">
+            <textarea id="example" placeholder="例句"></textarea>
+            <input type="number" id="difficulty" placeholder="难度 (1-5)" min="1" max="5">
+            <input type="text" id="examRequirement" placeholder="考试要求">
+            <button type="submit">添加单词</button>
+            <button type="edit">编辑单词</button>
+        </form>
+    </div>
+    <div>
+        <h3>单词列表</h3>
+        <table id="wordsTable">
+            <thead>
+                <tr>
+                    <th id="english">英语</th>
+                    <th id="chinese">中文</th>
+                    <th id="phonetic">音标</th>
+                    <th id="example">例句</th>
+                    <th id="difficulty">难度</th>
+                    <th id="examRequirement">考试要求</th>
+                    <th id="createdTime">创建时间</th>
+                    <th id="updateTime">更新时间</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 单词数据将通过JavaScript动态插入 -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 引入外部的 JavaScript 文件 -->
+    <script src="src/db.js" type="module"></script>
+    <script src="src/options.js" type="module"></script>
+</body>
+</html>
