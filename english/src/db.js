@@ -32,7 +32,7 @@ export const getData = async (getType, key) => {
     // 获取对象仓库的引用。
     const store = transaction.objectStore(STORE_NAME);
     let result;
-    if(getType === 'all'){
+    if(getType === 'getAllWords'){
         try {
             // 请求所有数据
             const request = store.getAll();
@@ -52,7 +52,7 @@ export const getData = async (getType, key) => {
             request.onerror = event => {reject(event.target.error);};
         });
     } else {
-        throw new Error('Invalid getType value');
+        throw new Error('请求值不存在');
     }
     return result; // 返回解决结果，即我们的数据。
 }

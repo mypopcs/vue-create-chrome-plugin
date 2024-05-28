@@ -28,7 +28,7 @@ const insertWordIntoTable = (word) => {
     <td>${word.phonetic}</td>
     <td>${word.example}</td>
     <td>${word.difficulty}</td>
-    <td>${word.examRequirement}</td>
+    <td>${word.examType}</td>
     <td>${word.createdTime}</td>
     <td>${word.updatedAt}</td>
     <td>
@@ -54,7 +54,7 @@ const insertWordIntoTable = (word) => {
 
 //获取单词
 const loadWords = async () => {
-  const words = await getData('all');
+  const words = await getData('getAllWords');
   if (typeof words === 'object' && words.length !== 0){
     console.log('Loaded words:', words);
     Object.entries(words).forEach(([key, value]) => {
@@ -81,7 +81,7 @@ const submitWord = () => {
       phonetic: document.getElementById('phonetic').value.trim(),
       example: document.getElementById('example').value.trim(),
       difficulty: document.getElementById('difficulty').value.trim(),
-      examRequirement: document.getElementById('examRequirement').value.trim(),
+      examRequirement: document.getElementById('examType').value.trim(),
       updatedAt:  '未更新',
     };
     //编辑状态
@@ -112,7 +112,7 @@ const editWord = (id) => {
       document.getElementById('phonetic').value = word.phonetic;
       document.getElementById('example').value = word.example;
       document.getElementById('difficulty').value = word.difficulty;
-      document.getElementById('examRequirement').value = word.examRequirement;
+      document.getElementById('examType').value = word.examRequirement;
       //获取创建时间
       window.currentEditingId = id;
     })
